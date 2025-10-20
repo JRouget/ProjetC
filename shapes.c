@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "shapes.h"
 #include "colors.h"
+#include "rotate.h"
 
 void map_create(FILE *create_file) {
     /*fill = colors_choice();  [WIP]*/
@@ -95,6 +96,7 @@ void modify(FILE *append_file)
         fill = colors_choice();
         stroke = stroke_color();
         stroke_width = stroke_choice();
+        ask_for_rotate = rotate();
         rectangle_t square = {0};
         printf("choose x\n");
         scanf("%d", &square.x);
@@ -104,7 +106,7 @@ void modify(FILE *append_file)
         scanf("%d", &square.width);
         printf("choose height\n");
         scanf("%d", &square.height);
-        fprintf(append_file, "<rect x='%d' y='%d' width='%d' height='%d' fill='%9s' stroke='%9s' stroke-width='%d' />\n", square.x, square.y, square.width, square.height, fill, stroke, stroke_width);
+        fprintf(append_file, "<rect x='%d' y='%d' width='%d' height='%d' fill='%9s' stroke='%9s' stroke-width='%d' transform = 'rotate(%d)'/>\n", square.x, square.y, square.width, square.height, fill, stroke, stroke_width, ask_for_rotate);
         free(fill);
         free(stroke);
         break;

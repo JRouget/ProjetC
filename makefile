@@ -6,4 +6,5 @@ build:
 	$(CC) $(FLAGS) shapes.c -c  
 	$(CC) $(FLAGS) ui.c -c 
 	$(CC) $(FLAGS) colors.c -c 
-	$(CC) $(FLAGS) SVGditors.c ui.c shapes.c colors.c -o SVGXE
+	$(CC) $(FLAGS) rotate.c -c 
+	$(CC) $(FLAGS) SVGditors.c ui.c shapes.c colors.c rotate.c -o SVGXE
